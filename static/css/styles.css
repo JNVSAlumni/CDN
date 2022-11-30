@@ -374,6 +374,10 @@ ul {
   position: fixed;
 }
 
+.mdl-layout__header{
+  position: fixed;
+}
+
 @media screen and (min-width: 1025px) {
   .mdl-layout__drawer-button {
     display: none;
