@@ -94,7 +94,7 @@ body {
 
 .demo-content {
   max-width: 100%;
-  margin: 74px 10px 10px 10px;
+  margin: 10px;
 }
 
 .demo-cards {
@@ -359,7 +359,6 @@ ul {
   letter-spacing: 0.00938em;
 }
 
-
 .mdl-layout--fixed-drawer>.mdl-layout__header .mdl-layout__header-row {
   padding-left: 55px;
 }
@@ -371,11 +370,6 @@ ul {
 .mdl-layout__drawer {
   margin-top: 0px;
   height: calc(100vh);
-  position: fixed;
-}
-
-.mdl-layout__header{
-  position: fixed;
 }
 
 @media screen and (min-width: 1025px) {
@@ -412,10 +406,6 @@ ul {
   color: #5f5f5f;
   font-weight: 450;
   font-size: 16px;
-}
-
-.mdl-layout {
-  position: fixed;
 }
 
 hr {
