@@ -351,11 +351,13 @@ h6 {
   letter-spacing: 0.00938em;
 }
 
+span,
+div,
 p,
 li,
 ul {
   text-align: justify;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 0.00938em;
 }
 
@@ -369,7 +371,7 @@ ul {
 
 .mdl-layout__drawer {
   margin-top: 0px;
-  height: calc(100vh);
+  height: calc(100vh + 64px);
   position: fixed;
 }
 
