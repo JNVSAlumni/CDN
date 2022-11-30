@@ -370,6 +370,7 @@ ul {
 .mdl-layout__drawer {
   margin-top: 0px;
   height: calc(100vh);
+  position: fixed;
 }
 
 @media screen and (min-width: 1025px) {
