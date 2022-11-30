@@ -450,3 +450,7 @@ hr {
   color: #757575;
   text-decoration: none;
 }
+
+.selected {
+  background-color: #e4e4e4;
+}
