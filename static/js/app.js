@@ -63,7 +63,7 @@ function profileSelection() {
 }
 
 function capitalize(textboxid, str) {
-    var output =  str.replace(/([^\W_]+[^\s.-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    var output = str.replace(/([^\W_]+[^\s.-]*) */g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
     document.getElementById(textboxid).value = output;
 }
 
@@ -141,3 +141,12 @@ function getFormattedDate() {
 }
 
 var xTime = getFormattedDate();
+
+
+var links = document.getElementsByTagName('nav')[0].getElementsByTagName('a');
+for (var i = 0; i < links.length; i++) {
+    if (document.URL.includes(links[i].href)) {
+        links[i].style.background = '#e4e4e4';
+        break;
+    }
+}
