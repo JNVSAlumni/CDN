@@ -359,6 +359,7 @@ ul {
   letter-spacing: 0.00938em;
 }
 
+
 .mdl-layout--fixed-drawer>.mdl-layout__header .mdl-layout__header-row {
   padding-left: 55px;
 }
@@ -407,6 +408,10 @@ ul {
   color: #5f5f5f;
   font-weight: 450;
   font-size: 16px;
+}
+
+.mdl-layout {
+  position: fixed;
 }
 
 hr {
