@@ -1,4 +1,4 @@
-﻿<!-- Designed and developed by Bipul Raman -->
+<!-- Designed and developed by Bipul Raman -->
 <!DOCTYPE html>
 <html b:version="2" class="v2" expr:dir="data:blog.languageDirection" xmlns="http://www.w3.org/1999/xhtml"
     xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data"
@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="The official Website of Bipul Raman." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{page.title}} | JNV Sitamarhi Alumni</title>
+    <title><data:blog.title /> | JNV Sitamarhi Alumni</title>
     <link rel="shortcut icon" href="/static/images/favicon.ico" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
@@ -126,7 +126,18 @@
         <main class="mdl-layout__content ">
             <div class="mdl-grid demo-content">
                 <div class="demo-card mdl-shadow--2dp abt-card">
-                    {{content}}
+                    <section id="outer-wrapper">
+                        <article id="article-wrapper">
+                          <b:section class="main" id="main">
+                            <b:widget
+                              id="Blog1"
+                              locked="true"
+                              title="Blog Posting"
+                              type="Blog"
+                            ></b:widget>
+                          </b:section>
+                        </article>
+                      </section>
                 </div>
                 <div>
                     <br />
@@ -138,7 +149,6 @@
         </main>
     </div>
 
-    <script src="/static/js/app.js" type="text/javascript"></script>
-</body>
+    <script src="/static/js/app.js" type="text/javascript"></script></body>
 
 </html>
