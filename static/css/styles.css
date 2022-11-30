@@ -1,6 +1,7 @@
 html,
 body {
   font-family: "Roboto", "Helvetica", sans-serif;
+  padding: 0;
 }
 
 .demo-avatar {
@@ -427,7 +428,7 @@ hr {
 
 .mdl-layout__content {
   background-color: #f5f5f5;
-  min-height: calc(100vh - 65px);
+  min-height: calc(100vh - 64px);
 }
 
 .nav-footer {
