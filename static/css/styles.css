@@ -408,15 +408,12 @@ ul {
   color: #ffffff;
 }
 
-.mdl-navigation__link {
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+  padding: 12px 40px;
   line-height: 22px;
   color: #595959;
   font-weight: 500;
   font-size: 16px;
-}
-
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-  padding: 12px 40px;
 }
 
 hr {
