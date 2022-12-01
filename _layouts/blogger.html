@@ -71,7 +71,7 @@
             </header>
             <hr />
             <nav class="demo-navigation mdl-navigation ">
-                <div>
+                <div id="leftNav">
                     <a class="mdl-navigation__link" href="/p/home.html"><em class="material-icons"
                             role="presentation">home</em>Home</a>
                     <a class="mdl-navigation__link" href="/p/alumni.html"><em class="material-icons"
@@ -145,7 +145,14 @@
             </div>
         </main>
     </div>
-    <script src="https://cdn.jnvsitamarhi.org/static/js/app.js"></script>
+    <script>
+        var links = document.getElementById("leftNav").getElementsByTagName('a');
+        Array.from(links).forEach(link => {
+            if (document.URL.includes(link.href)) {
+                link.style.background = '#e4e4e4';
+            }
+        });    
+    </script>
 </body>
 
 </html>
