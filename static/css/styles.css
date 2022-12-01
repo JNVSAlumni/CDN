@@ -89,7 +89,7 @@ body {
   flex-grow: 1;
 }
 
-.demo-navigation .mdl-navigation__link .material-icons {
+.mdl-navigation__link .material-icons {
   font-size: 24px;
   margin-right: 32px;
 }
@@ -367,10 +367,6 @@ ul {
   padding-left: 55px;
 }
 
-.mdl-layout__header-row .mdl-navigation__link {
-  line-height: 50px;
-}
-
 .mdl-layout__drawer {
   margin-top: 0px;
   height: calc(100vh + 64px);
@@ -409,7 +405,7 @@ ul {
   color: #ffffff;
 }
 
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+.mdl-navigation__link {
   line-height: 1.43;
   padding: 12px 40px;
   color: #5f5f5f;
