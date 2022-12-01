@@ -260,7 +260,7 @@ footer {
   height: 62px;
 }
 
-.socialicon {
+.social-icon {
   width: 32px;
   height: 32px;
   float: left;
@@ -269,7 +269,7 @@ footer {
   margin-bottom: 10px;
 }
 
-.socialicon>svg {
+.social-icon>svg {
   fill: #757575;
   height: 24px;
   width: 24px;
