@@ -4,6 +4,10 @@ body {
   padding: 0;
 }
 
+.hide {
+  display: none;
+}
+
 .demo-avatar {
   width: 80px;
   height: 80px;
