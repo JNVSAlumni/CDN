@@ -53,11 +53,11 @@
                 <div class="mdl-tooltip" for="hdrbtn">
                     Privacy &amp; Copyright
                 </div>
-                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-                    <li class="mdl-menu__item"><a href="/p/regulations.html">Regulations</a></li>
-                    <li class="mdl-menu__item"><a href="/p/privacy.html">Privacy</a></li>
-                    <li class="mdl-menu__item"><a href="/p/copyright.html">Copyright</a></li>
-                </ul>
+                <div id="cornerNav" class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                    <a class="mdl-menu__item" href="/p/regulations.html"><span>Regulations</span></a>
+                    <a class="mdl-menu__item" href="/p/privacy.html"><span>Privacy</span></a>
+                    <a class="mdl-menu__item" href="/p/copyright.html"><span>Copyright</span></a>
+                </div>
             </div>
         </header>
         <div class="demo-drawer mdl-layout__drawer ">
@@ -151,8 +151,10 @@
         </main>
     </div>
     <script>
-        var links = document.getElementById("leftNav").getElementsByTagName('a');
-        Array.from(links).forEach(link => {
+        var leftNavLinks = document.getElementById("leftNav").getElementsByTagName('a');
+        var cornerNavLinks = document.getElementById("cornerNav").getElementsByTagName('a');
+        var links = Array.from(leftNavLinks).concat(Array.from(cornerNavLinks));
+        links.forEach(link => {
             if (document.URL.includes(link.href)) {
                 link.style.background = '#e4e4e4';
             }
