@@ -493,6 +493,10 @@ hr {
   text-decoration: none;
 }
 
+#search label{
+  top: auto;
+}
+
 /******************************************************
   *  MDL Custom Component CSS Overwrite
 ******************************************************/

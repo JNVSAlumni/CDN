@@ -29,18 +29,21 @@
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="demo-header mdl-layout__header">
             <div class="mdl-layout__header-row">
-                <a class="mdl-navigation__link" href="/"><span id="pgTitle" class="mdl-layout-title">JNVS
+                <a class="mdl-navigation__link" href="/search?q="><span id="pgTitle" class="mdl-layout-title">JNVS
                         Alumni</span></a>
                 <div class="mdl-layout-spacer"></div>
                 <div>
-                    <a style="color: inherit;" href="/search">
-                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrsearch">
-                            <em class="material-icons">search</em>
-                        </button>
-                    </a>
-                </div>
-                <div class="mdl-tooltip" for="hdrsearch">
-                    Search
+                    <form id="search" action="#">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                          <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                            <i class="material-icons">search</i>
+                          </label>
+                          <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" id="sample6" />
+                            <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                          </div>
+                        </div>
+                      </form>
                 </div>
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
                     <em class="material-icons">more_vert</em>
