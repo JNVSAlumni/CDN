@@ -49,13 +49,7 @@ function getBlogPostsToDivId(divId) {
     })
         .then((response) => response.json())
         .then((data) => {
-            let posts = data.feed.entry;
-            const dateTimeFormat = new Intl.DateTimeFormat('en', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-            });
-            posts.forEach(post => {
+            Array.from(data.feed.enableLoader).forEach(post => {
                 var eachPost = {
                     author: post.author[0].name.$t,
                     title: post.title.$t,
@@ -71,7 +65,6 @@ function getBlogPostsToDivId(divId) {
                 allPosts.push(eachPost);
                 allPosts.push(eachPost);
             });
-            console.log(allPosts);
             allPosts.forEach(post => {
                 var postCard = document.createElement('div');
                 postCard.innerHTML = `
