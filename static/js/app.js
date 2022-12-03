@@ -6,7 +6,7 @@ window.onload = function () {
 
     // check if current url has index.html
     if (document.URL.includes('index.html')) {
-        getBlogPosts();
+        getBlogPostsToDivId('posts');
     }
     else {
         disableLoader();
@@ -40,7 +40,7 @@ function getReadableDate(isoDateString) {
     return result;
 };
 
-function getBlogPosts() {
+function getBlogPostsToDivId(divId) {
     var allPosts = [];
     fetch('/feeds/posts/summary?alt=json&amp;max-results=99999', {
         headers: {
@@ -99,6 +99,7 @@ function getBlogPosts() {
                         </div>
                     </div>
                 `;
+                document.getElementById(divId).appendChild(postCard);
             });
             disableLoader();
         });
