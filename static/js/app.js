@@ -56,14 +56,13 @@ function getBlogPostsToDivId(divId) {
                 day: 'numeric',
             });
             posts.forEach(post => {
-                let postDate = getReadableDate(post.published.$t);
                 var eachPost = {
                     author: post.author[0].name.$t,
                     title: post.title.$t,
                     summary: post.summary.$t,
                     link: post.link[4].href,
                     published: getReadableDate(post.published.$t),
-                    updated: post.updated.$t,
+                    updated: getReadableDate(post.updated.$t),
                     image: post.media$thumbnail?.url.replace('/s72-c/', '/s400-c/')
                 }
                 if (eachPost.image == undefined) {
