@@ -6,7 +6,7 @@ window.onload = function () {
 
     // check if current url has index.html
     if (document.URL.includes('index.html')) {
-        getBlogPosts
+        getBlogPosts();
     }
     else {
         disableLoader();

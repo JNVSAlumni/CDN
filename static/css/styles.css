@@ -1,3 +1,33 @@
+/******************************************************
+  *  Blogger CSS Overwrite
+******************************************************/
+
+.post-footer,
+.post-title,
+.post-feeds,
+.comments,
+.blog-pager,
+.blog-feeds,
+.status-msg-wrap {
+  display: none;
+}
+
+.gcsc-more-maybe-branding-root {
+  display: none;
+}
+
+.gsc-input {
+  background: "#ffffff !important";
+}
+
+.section {
+  margin: 0px;
+}
+
+/******************************************************
+  *  MDL based Template CSS Overwrite
+******************************************************/
+
 html,
 body {
   font-family: "Roboto", "Helvetica", sans-serif;
@@ -461,4 +491,42 @@ hr {
 .mdl-menu li a {
   color: #757575;
   text-decoration: none;
+}
+
+/******************************************************
+  *  MDL Custom Component CSS Overwrite
+******************************************************/
+
+.post-card {
+  padding: 10px 10px 0px 0px;
+  float: left;
+}
+
+.post-card .demo-card-square.mdl-card {
+  width: auto;
+  max-width: 320px;
+  height: 450px;
+}
+
+.post-card .mdl-card__title-text {
+  font-size: 20px;
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+
+.post-card .mdl-card__supporting-text {
+  height: 250px;
+}
+
+.post-card p {
+  text-overflow: ellipsis;
+  text-align: justify;
+}
+
+.post-card img {
+  height: 150px;
+}
+
+.post-card a {
+  float: right;
 }
