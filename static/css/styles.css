@@ -16,14 +16,6 @@
   margin: 0px;
 }
 
-.gcsc-more-maybe-branding-root {
-  display: none;
-}
-
-.gsc-input {
-  background: "#ffffff !important";
-}
-
 /******************************************************
   *  MDL based Template CSS Overwrite
 ******************************************************/
@@ -497,10 +489,6 @@ hr {
 .mdl-menu li a {
   color: #757575;
   text-decoration: none;
-}
-
-#search label {
-  top: auto;
 }
 
 .hr-full-mar-10 {

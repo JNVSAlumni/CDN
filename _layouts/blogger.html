@@ -35,17 +35,14 @@
                         Alumni</span></a>
                 <div class="mdl-layout-spacer"></div>
                 <div>
-                    <form id="search" action="/index.html" method="GET">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                          <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-                            <i class="material-icons">search</i>
-                          </label>
-                          <div class="mdl-textfield__expandable-holder">
-                            <input class="mdl-textfield__input" type="text" name="q" id="sample6" />
-                            <label class="mdl-textfield__label" for="sample-expandable"></label>
-                          </div>
-                        </div>
-                      </form>
+                    <a style="color: inherit;" href="#/search">
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrsearch">
+                            <em class="material-icons">search</em>
+                        </button>
+                    </a>
+                </div>
+                <div class="mdl-tooltip" for="hdrsearch">
+                    Search
                 </div>
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
                     <em class="material-icons">more_vert</em>
@@ -151,12 +148,7 @@
             </div>
             <div class="mdl-grid demo-content">
                 <div class="demo-card mdl-shadow--2dp abt-card">
-                    <b:if cond='data:blog.pageType == "index"'>
-                        <script async src="https://cse.google.com/cse.js?cx=015629988117867692500:1jehnrmoehk">
-                        </script>
-                        <div class="gcse-search"></div>
-                        <hr class="hr-full-mar-10"/>      
-                        <h3 style="padding-left: 10px;">Showing all recent blog posts:</h3>                  
+                    <b:if cond='data:blog.pageType == "index"'>                
                         <div id="posts" ></div>
                     </b:if>
                     <b:if cond='data:blog.pageType == "error_page"'>
