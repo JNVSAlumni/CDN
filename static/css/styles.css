@@ -12,6 +12,10 @@
   display: none;
 }
 
+.section {
+  margin: 0px;
+}
+
 .gcsc-more-maybe-branding-root {
   display: none;
 }
@@ -20,8 +24,12 @@
   background: "#ffffff !important";
 }
 
-.section {
-  margin: 0px;
+.gsc-search-button-v2{
+  height: 35px !important;
+  width: 85px !important;
+}
+.gsc-input{
+  height: 35px;
 }
 
 /******************************************************
@@ -385,7 +393,9 @@ span,
 div,
 p,
 li,
-ul {
+ul,
+th,
+td {
   text-align: justify;
   font-size: 15px;
   letter-spacing: 0.00938em;
