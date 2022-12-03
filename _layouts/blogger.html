@@ -19,55 +19,9 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-deep_purple.min.css" />
     <link rel="stylesheet" href="https://cdn.jnvsitamarhi.org/static/css/styles.css" />
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
+    <script src="https://cdn.jnvsitamarhi.org/static/js/app.js"></script>
     <b:skin>
-        <![CDATA[ 
-    .post-footer, .post-title, .post-feeds, .comments, .blog-pager, .blog-feeds, .status-msg-wrap {
-      display: none;
-    }
-    .gcsc-more-maybe-branding-root{
-        display: none;
-    }
-    .gsc-input{
-        background: "#ffffff !important";
-    }
-    .section{
-        margin:0px;
-    }
-
-    .post-card {
-        padding: 10px 10px 0px 0px;
-        float: left;
-    }
-
-    .post-card .demo-card-square.mdl-card {
-        width: auto;
-        max-width: 320px;
-        height: 450px;
-    }
-
-    .post-card .mdl-card__title-text {
-        font-size: 20px;
-        padding-bottom: 10px;
-        font-weight: 400;
-    }
-    .post-card .mdl-card__supporting-text {
-        height: 250px;
-    }
-
-    .post-card p {
-        text-overflow: ellipsis;
-        text-align: justify;
-    }
-
-    .post-card img {
-        height: 150px;
-    }
-
-    .post-card a {
-        float: right;
-    }
-]]>
+        <![CDATA[]]>
     </b:skin>
 </head>
 
@@ -188,7 +142,7 @@
             </nav>
         </div>
         <main class="mdl-layout__content ">
-            <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hide" style="width: 100%;">
+            <div id="loader" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hide" style="width: 100%;">
             </div>
             <div class="mdl-grid demo-content">
                 <div class="demo-card mdl-shadow--2dp abt-card">
@@ -231,92 +185,7 @@
                 </div>
             </div>
         </main>
-    </div>
-    <script>
-        var leftNavLinks = document.getElementById("leftNav").getElementsByTagName('a');
-        var cornerNavLinks = document.getElementById("cornerNav").getElementsByTagName('a');
-        var links = Array.from(leftNavLinks).concat(Array.from(cornerNavLinks));
-        links.forEach(link => {
-            if (document.URL.includes(link.href)) {
-                link.style.background = '#e0e0e0';
-            }
-        });    
-    </script>
-    <script>
-        document.getElementById("p2").classList.remove("hide");
-        function getReadableDate(isoDateString) {
-            date = new Date(isoDateString);
-            var result = date.toLocaleString('default', { month: 'long' }) + " " + date.getDate() + ", " + date.getFullYear();
-            return result;
-        };
-        if (window.location.href.indexOf("index.html")> -1) {
-            var allPosts = [];
-            fetch('/feeds/posts/summary?alt=json&amp;max-results=99999', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    let posts = data.feed.entry;
-                    const dateTimeFormat = new Intl.DateTimeFormat('en', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                    });
-                    posts.forEach(post => {
-                        let postDate = getReadableDate(post.published.$t);
-                        var eachPost = {
-                            author: post.author[0].name.$t,
-                            title: post.title.$t,
-                            summary: post.summary.$t,
-                            link: post.link[4].href,
-                            published: getReadableDate(post.published.$t),
-                            updated: post.updated.$t,
-                            image: post.media$thumbnail?.url.replace('/s72-c/', '/s400-c/')
-                        }
-                        if (eachPost.image == undefined) {
-                            eachPost.image = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMpttITxDuksIpdAgTj-NMgEZS2ya5C7HB9iMjz1G8dkbdWE074s_1l2RG6qthkmAeXxFBO-Y6vRE6Copah3D8YXeeDlx5Vq-MWHPHd6bH88uQmDZW0i216HXCElZguKpbLoecYs8yg3dowlt4f_8fndUVGae8hiZlSaNSrXDdkn3ZR6ieMs3WxJ5e/s400-c/IMG_20190721_065427.jpg';
-                        }
-                        allPosts.push(eachPost);
-                        allPosts.push(eachPost);
-                    });
-                    console.log(allPosts);
-                    allPosts.forEach(post => {
-                        var postCard = document.createElement('div');
-                        postCard.innerHTML = `
-                        <div class="post-card">
-                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
-                                <img
-                                    src="${post.image}" />
-                                <div class="mdl-card__supporting-text">
-                                    <h5 class="mdl-card__title-text">${post.title}</h5>
-                                    <p>${post.summary}</p>
-                                </div>
-                                <div class="mdl-card__actions mdl-card--border">
-                                    <span class="mdl-button">
-                                        ${post.published}
-                                    </span>
-                                    <span>
-                                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${post.link}">
-                                            View post
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                        document.getElementById('posts').appendChild(postCard);
-                    });                    
-                    document.getElementById("p2").classList.add("hide");
-                });
-        }
-        else{
-            document.getElementById("p2").classList.add("hide");
-        }
-    </script>
+    </div>    
 </body>
 
 </html>
