@@ -40,7 +40,7 @@ function highlightNavigation() {
 
 function getReadableDate(isoDateString) {
     date = new Date(isoDateString);
-    var result = date.toLocaleString('default', { month: 'long' }) + " " + date.getDate() + ", " + date.getFullYear();
+    var result = date.toLocaleString('default', { month: 'short' }) + " " + date.getDate() + ", " + date.getFullYear();
     return result;
 };
 
