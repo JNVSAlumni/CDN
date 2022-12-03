@@ -11,54 +11,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-deep_purple.min.css" />
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 
 <body>
-
-    <!-- Square card -->
-    <style>
-        .post-card {
-            padding: 10px;
-        }
-
-        .post-card .demo-card-square.mdl-card {
-            width: auto;
-            max-width: 320px;
-            height: 450px;
-        }
-
-        .post-card .mdl-card__title-text {
-            font-size: 20px;
-            padding-bottom: 10px;
-            font-weight: 400;
-        }
-
-        .post-card p {
-            text-overflow: ellipsis;
-            text-align: justify;
-        }
-
-        .post-card img {
-            height: 150px;
-        }
-
-        .post-card a {
-            float: right;
-        }
-    </style>
-    <script>
-        fetch('/feeds/posts/summary?alt=json&max-results=99999', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
-  .then((response) => response.json())
-  .then((data) => console.log(data));
-
-    </script>
-
+    <!-- POST CARD DEMO -->
     <div class="post-card">
         <div class="demo-card-square mdl-card mdl-shadow--2dp">
             <img
