@@ -56,7 +56,7 @@ function getBlogPostsToDivId(divId) {
     })
         .then((response) => response.json())
         .then((data) => {
-            Array.from(data.feed.enableLoader).forEach(post => {
+            Array.from(data.feed.entry).forEach(post => {
                 var eachPost = {
                     author: post.author[0].name.$t,
                     title: post.title.$t,
