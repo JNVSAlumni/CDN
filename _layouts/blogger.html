@@ -21,8 +21,14 @@
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <b:skin>
         <![CDATA[ 
-    .post-footer, .post-title, .post-feeds, .comments, .blog-pager, .blog-feeds {
+    .post-footer, .post-title, .post-feeds, .comments, .blog-pager, .blog-feeds, .status-msg-wrap {
       display: none;
+    }
+    .gcsc-more-maybe-branding-root{
+        display: none;
+    }
+    .gsc-input{
+        background: "#ffffff !important";
     }
     .section{
         margin:0px;
@@ -35,7 +41,7 @@
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="demo-header mdl-layout__header">
             <div class="mdl-layout__header-row">
-                <span id="pgTitle" class="mdl-layout-title">JNVS Alumni</span>
+                <a class="mdl-navigation__link" href="/"><span id="pgTitle" class="mdl-layout-title">JNVS Alumni</span></a>
                 <div class="mdl-layout-spacer"></div>
                 <div>
                     <a style="color: inherit;" href="#/search">
@@ -53,7 +59,8 @@
                 <div class="mdl-tooltip" for="hdrbtn">
                     Privacy &amp; Copyright
                 </div>
-                <div id="cornerNav" class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <div id="cornerNav" class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right"
+                    for="hdrbtn">
                     <a class="mdl-menu__item" href="/p/regulations.html"><span>Regulations</span></a>
                     <a class="mdl-menu__item" href="/p/privacy.html"><span>Privacy</span></a>
                     <a class="mdl-menu__item" href="/p/copyright.html"><span>Copyright</span></a>
@@ -147,17 +154,35 @@
             <div class="mdl-grid demo-content">
                 <div class="demo-card mdl-shadow--2dp abt-card">
                     <b:if cond='data:blog.pageType == "index"'>
-                        <script async src="https://cse.google.com/cse.js?cx=015629988117867692500:1jehnrmoehk">
-                        </script>
-                    </b:if>                    
-                    <div class="gcse-search"></div>
-                    <section id="outer-wrapper">
-                        <article id="article-wrapper">
-                            <b:section class="main" id="main">
-                                <b:widget id="Blog1" locked="true" title="Blog Posting" type="Blog"></b:widget>
-                            </b:section>
-                        </article>
-                    </section>
+                        <b:if cond='data:blog.searchQuery'>
+                            <script async src="https://cse.google.com/cse.js?cx=015629988117867692500:1jehnrmoehk">
+                            </script>
+                            <div class="gcse-search"></div>
+                            <b:else />
+                            <span>Index Page</span>
+                        </b:if>
+                    </b:if>
+                    <b:if cond='data:blog.pageType == "error_page"'>
+                        <h3>That's an error ☹! We cound't find the requested page on this website.</h3>
+                        <div><img src="https://www.bipul.in/images/404.svg" /></div>
+                    </b:if>
+
+                    <b:if cond='data:blog.pageType == "static_page" || data:blog.pageType == "item"'>
+                        <b:if cond='data:blog.pageType == "item"'>
+                            <div>
+                                <h2>
+                                    <data:blog.pageName />
+                                </h2>
+                            </div>
+                        </b:if>
+                        <section id="outer-wrapper">
+                            <article id="article-wrapper">
+                                <b:section class="main" id="main">
+                                    <b:widget id="Blog1" locked="true" title="Blog Posting" type="Blog"></b:widget>
+                                </b:section>
+                            </article>
+                        </section>
+                    </b:if>
                 </div>
                 <div>
                     <br />
