@@ -497,9 +497,13 @@ hr {
   *  MDL Custom Component CSS Overwrite
 ******************************************************/
 
+#posts{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .post-card {
-  padding: 10px;
-  float: left;
+  padding: 5px;
 }
 
 .post-card .demo-card-square.mdl-card {
