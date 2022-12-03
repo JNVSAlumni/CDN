@@ -13,11 +13,11 @@ window.onload = function () {
 // Function Definitions =========================================
 
 function enableLoader() {
-    document.getElementById("loader").style.display = "block";
+    document.getElementById("loader").classList.remove("hide");
 }
 
 function disableLoader() {
-    document.getElementById("loader").style.display = "none";
+    document.getElementById("loader").classList.add("hide");
 }
 
 function highlightNavigation() {
