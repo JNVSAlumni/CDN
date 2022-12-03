@@ -150,13 +150,12 @@
             <div class="mdl-grid demo-content">
                 <div class="demo-card mdl-shadow--2dp abt-card">
                     <b:if cond='data:blog.pageType == "index"'>
-                        <b:if cond='data:blog.searchQuery'>
-                            <script async src="https://cse.google.com/cse.js?cx=015629988117867692500:1jehnrmoehk">
-                            </script>
-                            <div class="gcse-search"></div>
-                            <b:else />
-                            <div id="posts"></div>
-                        </b:if>
+                        <script async src="https://cse.google.com/cse.js?cx=015629988117867692500:1jehnrmoehk">
+                        </script>
+                        <div class="gcse-search"></div>
+                        <hr class="hr-full-mar-10"/>      
+                        <h3>Showing all recent blog posts:</h3>                  
+                        <div id="posts" ></div>
                     </b:if>
                     <b:if cond='data:blog.pageType == "error_page"'>
                         <h3>That's an error ☹! We cound't find the requested page on this website.</h3>
