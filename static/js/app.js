@@ -70,7 +70,6 @@ function getBlogPostsToDivId(divId) {
                     eachPost.image = DEFAULT_IMAGE_URL;
                 }
                 allPosts.push(eachPost);
-                allPosts.push(eachPost);
             });
             allPosts.forEach(post => {
                 var postCard = document.createElement('div');
