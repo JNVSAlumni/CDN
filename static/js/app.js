@@ -8,9 +8,6 @@ window.onload = function () {
     if (document.URL.includes('index.html')) {
         getBlogPostsToDivId('posts');
     }
-    else {
-        disableLoader();
-    }
 };
 
 // Function Definitions =========================================
@@ -41,6 +38,7 @@ function getReadableDate(isoDateString) {
 };
 
 function getBlogPostsToDivId(divId) {
+    enableLoader();
     var allPosts = [];
     fetch('/feeds/posts/summary?alt=json&amp;max-results=99999', {
         headers: {
