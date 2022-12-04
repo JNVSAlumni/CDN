@@ -95,7 +95,16 @@ function fetchDataFromAPI(apiUrl) {
 }
 
 function buildHTMLForAccountLogs(data) {
-    var itemElements = document.createElement('tbody');
+    var tableHeader = document.createElement('thead');
+    tableHeader.innerHTML = `
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>By</th>
+            <th>Purpose</th>
+        </tr>
+        `;
+    var tableBody = document.createElement('tbody');
     Array.from(data).forEach(item => {
         if (item.Credit > 0) {
             item.IconName = '+ ₹';
@@ -114,9 +123,13 @@ function buildHTMLForAccountLogs(data) {
             <td>${item.TransactedBy}</td>
             <td>${item.Description}</td>
              `;
-        itemElements.appendChild(itemElement);
+        tableBody.appendChild(itemElement);
     });
-    return itemElements;
+    var table = document.createElement('table');
+    table.setAttribute('class', 'mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp');
+    table.appendChild(tableHeader);
+    table.appendChild(tableBody);
+    return table;
 }
 
 function transformBlogAPIData(data) {
@@ -169,60 +182,3 @@ function buildHTMLForBlogPosts(data) {
     });
     return itemElements;
 }
-
-// function getBlogPostsToDivId(divId) {
-//     enableLoader();
-//     var allPosts = [];
-//     fetch(BLOG_POSTS_API, {
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json',
-//             'Access-Control-Allow-Origin': '*'
-//         }
-//     })
-//         .then((response) => response.json())
-//         .then((data) => {
-//             Array.from(data.feed.entry).forEach(post => {
-//                 var eachPost = {
-//                     author: post.author[0].name.$t,
-//                     title: post.title.$t,
-//                     summary: post.summary.$t,
-//                     link: post.link[4].href,
-//                     published: getReadableDate(post.published.$t),
-//                     updated: getReadableDate(post.updated.$t),
-//                     image: post.media$thumbnail?.url.replace('/s72-c/', '/s400-c/')
-//                 }
-//                 if (eachPost.image == undefined) {
-//                     eachPost.image = DEFAULT_IMAGE_URL;
-//                 }
-//                 allPosts.push(eachPost);
-//             });
-//             allPosts.forEach(post => {
-//                 var postCard = document.createElement('div');
-//                 postCard.innerHTML = `
-//                     <div class="post-card">
-//                         <div class="demo-card-square mdl-card mdl-shadow--2dp">
-//                             <img
-//                                 src="${post.image}" />
-//                             <div class="mdl-card__supporting-text">
-//                                 <h5 class="mdl-card__title-text">${post.title}</h5>
-//                                 <p>${post.summary}</p>
-//                             </div>
-//                             <div class="mdl-card__actions mdl-card--border">
-//                                 <span class="mdl-button">
-//                                     ${post.published}
-//                                 </span>
-//                                 <span>
-//                                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${post.link}">
-//                                         View post
-//                                     </a>
-//                                 </span>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 `;
-//                 document.getElementById(divId).appendChild(postCard);
-//             });
-//             disableLoader();
-//         });
-// }
