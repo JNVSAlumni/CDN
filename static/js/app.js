@@ -19,13 +19,13 @@ window.onload = function () {
         fetchDataFromAPI(BLOG_POSTS_API)
             .then((data) => {
                 var htmlElements = buildHTMLForBlogPosts(transformBlogAPIData(data));
-                document.getElementById(posts).appendChild(buildHTMLForBlogPosts(htmlElements.innerHTML));
+                document.getElementById('posts').appendChild(buildHTMLForBlogPosts(htmlElements.innerHTML));
                 disableLoader();
             });
     }
     else if (document.URL.includes('accounts.html')) {
         enableLoader();
-        fetchJsonDataFromAPI(ACCOUNTS_API)
+        fetchDataFromCDN(ACCOUNTS_API)
             .then((data) => {
                 var htmlElements = buildHTMLForAccountLogs(data);
                 document.getElementById('accountLogs').appendChild(htmlElements);
