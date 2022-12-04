@@ -138,7 +138,7 @@ function transformBlogAPIData(data) {
 
 function buildHTMLForBlogPosts(data) {
     var itemElements = document.createElement('div');
-    data.forEach(post => {
+    Array.from(data).forEach(post => {
         var postCard = document.createElement('div');
         postCard.innerHTML = `
             <div class="post-card">
