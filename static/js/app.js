@@ -93,7 +93,7 @@ function fetchDataFromAPI(apiUrl) {
 
 function buildHTMLForAccountLogs(data) {
     var itemElements = document.createElement('tbody');
-    data.forEach(item => {
+    Array.from(data).forEach(item => {
         if (item.Credit > 0) {
             item.IconName = '+ ₹';
             item.StyleClass = 'credit';
