@@ -277,6 +277,7 @@ h6 {
   background-color: white;
   color: #37474f;
   width: 100%;
+  overflow: hidden;
 }
 
 .abt-card {
