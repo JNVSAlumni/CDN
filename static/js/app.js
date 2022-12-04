@@ -18,8 +18,11 @@ window.onload = function () {
         enableLoader();
         fetchDataFromAPI(BLOG_POSTS_API)
             .then((data) => {
-                var htmlElements = buildHTMLForBlogPosts(transformBlogAPIData(data));
+                var allPosts = transformBlogAPIData(data);
+                console.log(allPosts);
+                var htmlElements = buildHTMLForBlogPosts(allPosts);
                 document.getElementById('posts').appendChild(buildHTMLForBlogPosts(htmlElements.innerHTML));
+                console.log(htmlElements);
                 disableLoader();
             });
     }
