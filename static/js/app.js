@@ -2,8 +2,10 @@ const DIV_ID_BLOG_POST = 'posts';
 const DIV_ID_LOADER = 'loader';
 const DIV_ID_LEFT_NAV = 'leftNav';
 const DIV_ID_CORNER_NAV = 'cornerNav';
+const DIV_ID_ACCOUNTS_LOGS = 'accountLogs';
 const CLASS_DISPLAY_NONE = 'hide';
-const BLOG_POSTS_URL = '/feeds/posts/summary?alt=json&amp;max-results=99999';
+const ACCOUNTS_API = 'https://jnvsitamarhi.org/JsonData/accounts.json';
+const BLOG_POSTS_API = '/feeds/posts/summary?alt=json&amp;max-results=99999';
 const DEFAULT_IMAGE_URL = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMpttITxDuksIpdAgTj-NMgEZS2ya5C7HB9iMjz1G8dkbdWE074s_1l2RG6qthkmAeXxFBO-Y6vRE6Copah3D8YXeeDlx5Vq-MWHPHd6bH88uQmDZW0i216HXCElZguKpbLoecYs8yg3dowlt4f_8fndUVGae8hiZlSaNSrXDdkn3ZR6ieMs3WxJ5e/s400-c/IMG_20190721_065427.jpg';
 
 
@@ -13,7 +15,22 @@ window.onload = function () {
 
     // check if current url has index.html
     if (document.URL.includes('index.html')) {
-        getBlogPostsToDivId(DIV_ID_BLOG_POST);
+        enableLoader();
+        fetchDataFromAPI(BLOG_POSTS_API)
+            .then((data) => {
+                var htmlElements = buildHTMLForBlogPosts(transformBlogAPIData(data));
+                document.getElementById(posts).appendChild(buildHTMLForBlogPosts(htmlElements.innerHTML));
+                disableLoader();
+            });
+    }
+    else if (document.URL.includes('accounts.html')) {
+        enableLoader();
+        fetchJsonDataFromAPI(ACCOUNTS_API)
+            .then((data) => {
+                var htmlElements = buildHTMLForAccountLogs(data);
+                document.getElementById('accountLogs').appendChild(htmlElements);
+                disableLoader();
+            });
     }
 };
 
@@ -44,59 +61,165 @@ function getReadableDate(isoDateString) {
     return result;
 };
 
-function getBlogPostsToDivId(divId) {
-    enableLoader();
-    var allPosts = [];
-    fetch(BLOG_POSTS_URL, {
+function fetchDataFromCDN(apiUrl) {
+    return fetch(apiUrl)
+        .then((response) => {
+            return response.json().then((data) => {
+                return data;
+            }).catch((err) => {
+                console.log(err);
+                return null;
+            })
+        });
+}
+
+function fetchDataFromAPI(apiUrl) {
+    return fetch(apiUrl, {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
             'Access-Control-Allow-Origin': '*'
         }
     })
-        .then((response) => response.json())
-        .then((data) => {
-            Array.from(data.feed.entry).forEach(post => {
-                var eachPost = {
-                    author: post.author[0].name.$t,
-                    title: post.title.$t,
-                    summary: post.summary.$t,
-                    link: post.link[4].href,
-                    published: getReadableDate(post.published.$t),
-                    updated: getReadableDate(post.updated.$t),
-                    image: post.media$thumbnail?.url.replace('/s72-c/', '/s400-c/')
-                }
-                if (eachPost.image == undefined) {
-                    eachPost.image = DEFAULT_IMAGE_URL;
-                }
-                allPosts.push(eachPost);
-            });
-            allPosts.forEach(post => {
-                var postCard = document.createElement('div');
-                postCard.innerHTML = `
-                    <div class="post-card">
-                        <div class="demo-card-square mdl-card mdl-shadow--2dp">
-                            <img
-                                src="${post.image}" />
-                            <div class="mdl-card__supporting-text">
-                                <h5 class="mdl-card__title-text">${post.title}</h5>
-                                <p>${post.summary}</p>
-                            </div>
-                            <div class="mdl-card__actions mdl-card--border">
-                                <span class="mdl-button">
-                                    ${post.published}
-                                </span>
-                                <span>
-                                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${post.link}">
-                                        View post
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.getElementById(divId).appendChild(postCard);
-            });
-            disableLoader();
+        .then((response) => {
+            return response.json().then((data) => {
+                return data;
+            }).catch((err) => {
+                console.log(err);
+                return null;
+            })
         });
 }
+
+function buildHTMLForAccountLogs(data) {
+    var itemElements = document.createElement('tbody');
+    data.forEach(item => {
+        if (item.Credit > 0) {
+            item.IconName = '+ ₹';
+            item.StyleClass = 'credit';
+            item.Transaction = item.Credit
+        }
+        else {
+            item.IconName = '- ₹';
+            item.StyleClass = 'debit';
+            item.Transaction = item.Debit
+        }
+        var itemElement = document.createElement('tr');
+        itemElement.innerHTML = `
+            <td>${getReadableDate(item.Date)}</td>
+            <td>${item.IconName}${item.Transaction}</td>
+            <td>${item.TransactedBy}</td>
+            <td>${item.Description}</td>
+             `;
+        itemElements.appendChild(itemElement);
+    });
+    return itemElements;
+}
+
+function transformBlogAPIData(data) {
+    var allPosts = [];
+    Array.from(data.feed.entry).forEach(post => {
+        var eachPost = {
+            author: post.author[0].name.$t,
+            title: post.title.$t,
+            summary: post.summary.$t,
+            link: post.link[4].href,
+            published: getReadableDate(post.published.$t),
+            updated: getReadableDate(post.updated.$t),
+            image: post.media$thumbnail?.url.replace('/s72-c/', '/s400-c/')
+        }
+        if (eachPost.image == undefined) {
+            eachPost.image = DEFAULT_IMAGE_URL;
+        }
+        allPosts.push(eachPost);
+    });
+    return allPosts;
+}
+
+function buildHTMLForBlogPosts(data) {
+    var itemElements = document.createElement('div');
+    data.forEach(post => {
+        var postCard = document.createElement('div');
+        postCard.innerHTML = `
+            <div class="post-card">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <img
+                        src="${post.image}" />
+                    <div class="mdl-card__supporting-text">
+                        <h5 class="mdl-card__title-text">${post.title}</h5>
+                        <p>${post.summary}</p>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <span class="mdl-button">
+                            ${post.published}
+                        </span>
+                        <span>
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${post.link}">
+                                View post
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        `;
+        itemElements.appendChild(postCard);
+    });
+    return itemElements;
+}
+
+// function getBlogPostsToDivId(divId) {
+//     enableLoader();
+//     var allPosts = [];
+//     fetch(BLOG_POSTS_API, {
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json',
+//             'Access-Control-Allow-Origin': '*'
+//         }
+//     })
+//         .then((response) => response.json())
+//         .then((data) => {
+//             Array.from(data.feed.entry).forEach(post => {
+//                 var eachPost = {
+//                     author: post.author[0].name.$t,
+//                     title: post.title.$t,
+//                     summary: post.summary.$t,
+//                     link: post.link[4].href,
+//                     published: getReadableDate(post.published.$t),
+//                     updated: getReadableDate(post.updated.$t),
+//                     image: post.media$thumbnail?.url.replace('/s72-c/', '/s400-c/')
+//                 }
+//                 if (eachPost.image == undefined) {
+//                     eachPost.image = DEFAULT_IMAGE_URL;
+//                 }
+//                 allPosts.push(eachPost);
+//             });
+//             allPosts.forEach(post => {
+//                 var postCard = document.createElement('div');
+//                 postCard.innerHTML = `
+//                     <div class="post-card">
+//                         <div class="demo-card-square mdl-card mdl-shadow--2dp">
+//                             <img
+//                                 src="${post.image}" />
+//                             <div class="mdl-card__supporting-text">
+//                                 <h5 class="mdl-card__title-text">${post.title}</h5>
+//                                 <p>${post.summary}</p>
+//                             </div>
+//                             <div class="mdl-card__actions mdl-card--border">
+//                                 <span class="mdl-button">
+//                                     ${post.published}
+//                                 </span>
+//                                 <span>
+//                                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${post.link}">
+//                                         View post
+//                                     </a>
+//                                 </span>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 `;
+//                 document.getElementById(divId).appendChild(postCard);
+//             });
+//             disableLoader();
+//         });
+// }
