@@ -20,6 +20,7 @@
   *  MDL based Template CSS Overwrite
 ******************************************************/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
+
   select:focus,
   textarea:focus,
   input:focus {
@@ -86,7 +87,7 @@ h6 {
   letter-spacing: 0.00938em;
 }
 
-.post-outer{
+.post-outer {
   text-align: justify;
 }
 
@@ -504,7 +505,9 @@ hr {
   *  MDL Custom Component CSS Overwrite
 ******************************************************/
 
-#posts {
+/*** POST CARD ***/
+
+#posts>div {
   display: grid;
   gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
