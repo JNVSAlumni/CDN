@@ -21,7 +21,7 @@ window.onload = function () {
                 var allPosts = transformBlogAPIData(data);
                 console.log(allPosts);
                 var htmlElements = buildHTMLForBlogPosts(allPosts);
-                document.getElementById('posts').appendChild(htmlElements.innerHTML);
+                document.getElementById('posts').innerHTML(htmlElements.innerHTML);
                 console.log(htmlElements);
                 disableLoader();
             });
