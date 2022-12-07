@@ -103,10 +103,6 @@ h6 {
   letter-spacing: 0.00938em;
 }
 
-.global-footer {
-  padding: 0px 15px 15px 15px;
-}
-
 .post-outer {
   text-align: justify;
 }
@@ -205,12 +201,22 @@ h6 {
   margin: 5px;
 }
 
+.global-footer {
+  padding: 0px 15px 15px 15px;
+}
+
 @media only screen and (min-width: 1025px) {
   .demo-content {
     max-width: 90%;
     margin: auto;
     margin-top: 5px;
     margin-bottom: 5px;
+  }
+
+  .global-footer {
+    max-width: 90%;
+    margin: auto;
+    padding: 0px 15px 15px 15px;
   }
 }
 
