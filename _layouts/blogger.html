@@ -143,35 +143,16 @@
                 </div>
             </nav>
         </div>
-        <main class="mdl-layout__content ">
-            <div id="loader" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hide" style="width: 100%;">
-            </div>
+        <main class="mdl-layout__content ">            
             <div class="mdl-grid demo-content">
                 <div class="demo-card mdl-shadow--2dp abt-card">
-                    <b:if cond='data:blog.pageType == "index"'>                
-                        <div id="posts" ></div>
-                    </b:if>
-                    <b:if cond='data:blog.pageType == "error_page"'>
-                        <h3>That's an error ☹! We cound't find the requested page on this website.</h3>
-                        <div><img src="https://www.bipul.in/images/404.svg" /></div>
-                    </b:if>
-
-                    <b:if cond='data:blog.pageType == "static_page" || data:blog.pageType == "item"'>
-                        <b:if cond='data:blog.pageType == "item"'>
-                            <div>
-                                <h2>
-                                    <data:blog.pageName />
-                                </h2>
-                            </div>
-                        </b:if>
-                        <section id="outer-wrapper">
-                            <article id="article-wrapper">
-                                <b:section class="main" id="main">
-                                    <b:widget id="Blog1" locked="true" title="Blog Posting" type="Blog"></b:widget>
-                                </b:section>
-                            </article>
-                        </section>
-                    </b:if>
+                    <section id="outer-wrapper">
+                        <article id="article-wrapper">
+                            <b:section class="main" id="main">
+                                <b:widget id="Blog1" locked="true" title="Blog Posting" type="Blog"></b:widget>
+                            </b:section>
+                        </article>
+                    </section>
                 </div>
                 <div>
                     <br />

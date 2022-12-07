@@ -1,19 +1,35 @@
 /******************************************************
   *  Blogger CSS Overwrite
 ******************************************************/
-
-/* .post-footer,
-.post-title,
 .post-feeds,
-.comments,
-.blog-pager,
 .blog-feeds,
-.status-msg-wrap {
+.post-footer,
+.post-title {
   display: none;
-} */
+}
 
 .section {
   margin: 0px;
+}
+
+.post-body img {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: block;
+  height: auto;
+}
+
+.post-body p {
+  text-align: justify;
+}
+
+.post-body a {
+  margin: 0px !important;
+}
+
+.blog-pager {
+  padding: 10px;
 }
 
 /******************************************************
@@ -85,6 +101,16 @@ h6 {
   line-height: 18px;
   font-weight: 400;
   letter-spacing: 0.00938em;
+}
+
+.posts-container {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+}
+
+.global-footer {
+  padding: 0px 15px 15px 15px;
 }
 
 .post-outer {
@@ -281,7 +307,7 @@ h6 {
 }
 
 .abt-card {
-  padding: 30px;
+  padding: 10px 20px 10px 20px;
   border-radius: 4px;
 }
 
@@ -499,7 +525,7 @@ hr {
 
 .hr-full-mar-10 {
   width: 100%;
-  margin-top: 10px;
+  margin: 10px 0px 10px 0px;
 }
 
 /******************************************************
