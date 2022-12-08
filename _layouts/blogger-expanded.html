@@ -257,6 +257,12 @@
                     <div class='clear' />
                   </b:includable>
 
+                  <b:includable id='status-message'>
+                    <b:if cond='data:navMessage'>
+                      <h6><data:navMessage/></h6>
+                    </b:if>
+                  </b:includable>
+
                   <b:includable id='post' var='post'>
                     <div class='post' itemprop='blogPost' itemscope='itemscope'
                       itemtype='http://schema.org/BlogPosting'>
