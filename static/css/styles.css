@@ -18,6 +18,7 @@
   margin: 0 auto;
   display: block;
   height: auto;
+  padding: 5px;
 }
 
 .post-body p {
