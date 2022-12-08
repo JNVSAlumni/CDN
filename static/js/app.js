@@ -18,6 +18,10 @@ window.onload = function () {
                 disableLoader();
             });
     }
+
+    if (document.URL.includes('index.html') || document.URL.includes('/search')) {
+        updateLinkShowAllPosts();
+    }
 };
 
 // Function Definitions =========================================
@@ -28,6 +32,14 @@ function enableLoader() {
 
 function disableLoader() {
     document.getElementById(DIV_ID_LOADER).classList.add(CLASS_DISPLAY_NONE);
+}
+
+function updateLinkShowAllPosts() {
+    Array.from(document.getElementsByTagName('a')).forEach((a) => {
+        if (a.innerText == 'Show all posts') {
+            a.href = window.location.origin + '/index.html';
+        }
+    });
 }
 
 function highlightNavigation() {
