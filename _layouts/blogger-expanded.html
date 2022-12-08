@@ -257,6 +257,12 @@
                     <div class='clear' />
                   </b:includable>
 
+                  <b:includable id='status-message'>
+                    <b:if cond='data:navMessage'>
+                      <h6><data:navMessage /></h6>
+                    </b:if>
+                  </b:includable>
+
                   <b:includable id='post' var='post'>
                     <div class='post' itemprop='blogPost' itemscope='itemscope'
                       itemtype='http://schema.org/BlogPosting'>
@@ -442,13 +448,14 @@
                 </b:widget>
               </b:section>
             </article>
-          </section>
-          <div class="global-footer">
-            <span>&#169; JNV Sitamarhi Alumni Association | Made with &#10084;&#65039; in India 🇮🇳 by <a href="https://www.bipul.in" target="_blank">Bipul Raman</a>.</span>
-          </div>
+          </section>          
         </div>
 
       </div>
+      <div class="global-footer">
+            <span>&#169; JNV Sitamarhi Alumni Association | Made with &#10084;&#65039; in India 🇮🇳 by <a
+                href="https://www.bipul.in" target="_blank">Bipul Raman</a>.</span>
+          </div>
     </main>
   </div>
 </body>
