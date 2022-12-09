@@ -136,20 +136,16 @@ MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
     var params = new URLSearchParams(queryStrings);
     var searchText = params.get('q');
     var xTime = getFormattedDate();
-    if (searchText) {
-        //$("#progressBar").show();
-        //$scope.status = "progress";
-        $scope.searchString = decodeURI(searchText);
-        var serviceURL = alumniDSvc + "?x=" + xTime;
-        $http({
-            method: 'GET',
-            url: serviceURL
-         }).then(function (response){
-            $scope.items = response.data;
-         },function (error){
-            console.log("No data found. Error details: " + error + "");
-         });
-    }
+    $scope.searchString = decodeURI(searchText);
+    var serviceURL = alumniDSvc + "?x=" + xTime;
+    $http({
+        method: 'GET',
+        url: serviceURL
+    }).then(function (response) {
+        $scope.items = response.data;
+    }, function (error) {
+        console.log("No data found. Error details: " + error + "");
+    });
 });
 
 
@@ -191,7 +187,7 @@ function profileSelection() {
 }
 
 function capitalize(textboxid, str) {
-    var output =  str.replace(/([^\W_]+[^\s.-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    var output = str.replace(/([^\W_]+[^\s.-]*) */g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
     document.getElementById(textboxid).value = output;
 }
 
