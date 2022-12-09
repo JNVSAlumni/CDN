@@ -111,7 +111,9 @@ function buildHTMLForAccountLogs(data) {
 
 // ANGULAR JS =========================================
 
+var MainApp = angular.module('MainApp', ['MainAppControllers']);
 var MainAppControllers = angular.module('MainAppControllers', []);
+
 var alumniDSvc = "https://jnvsitamarhi.org/JsonData/alumni.json";
 MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
     var searchText = getQueryStringParameter('q');
