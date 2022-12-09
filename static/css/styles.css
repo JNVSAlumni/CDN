@@ -34,6 +34,37 @@
 }
 
 /******************************************************
+  *  Search
+******************************************************/
+
+.contentCenter {
+  display: grid;
+  place-items: center;
+}
+
+#blogSearch {
+  width: 100%;
+  margin: 20px;
+}
+
+#blogSearch table {
+  width: 100%;
+  max-width: 600px;
+}
+
+#blogSearch .mdl-textfield {
+  width: 100%;
+}
+
+#blogSearch input {
+  width: 100%;
+}
+
+#blogSearch td:nth-child(2) {
+  width: 30px;
+}
+
+/******************************************************
   *  MDL based Template CSS Overwrite
 ******************************************************/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -529,7 +560,7 @@ hr {
 /******************************************************
   *  MDL Custom Component CSS Overwrite
 ******************************************************/
-.mdl-progress__indeterminate{
+.mdl-progress__indeterminate {
   width: 100%;
 }
 
