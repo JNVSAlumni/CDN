@@ -137,6 +137,9 @@ MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
     var searchText = params.get('q');
     var xTime = getFormattedDate();
     $scope.searchString = decodeURI(searchText);
+    if ($scope.searchString == null) {
+        $scope.searchString = "";
+    }
     var serviceURL = alumniDSvc + "?x=" + xTime;
     $http({
         method: 'GET',
