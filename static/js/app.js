@@ -133,14 +133,13 @@ MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
         //$scope.status = "progress";
         $scope.searchString = decodeURI(searchText);
         var serviceURL = alumniDSvc + "?x=" + xTime;
-        $http.get(serviceURL)
-            .success(function (data, status, headers, config) {
-                $scope.items = data;
-                //$("#progressBar").hide();
-            })
-            .error(function (data, status, headers, config) {
-                console.log("No data found..");
-                //$("#progressBar").hide();
-            });
+        $http({
+            method: 'GET',
+            url: serviceURL
+         }).then(function (data){
+            $scope.items = data;
+         },function (error){
+            console.log("No data found. Error details: " + error + "");
+         });
     }
 });
