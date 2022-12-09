@@ -115,8 +115,12 @@ var MainApp = angular.module('MainApp', ['MainAppControllers']);
 var MainAppControllers = angular.module('MainAppControllers', []);
 
 var alumniDSvc = "https://jnvsitamarhi.org/JsonData/alumni.json";
+
+
 MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
-    var searchText = getQueryStringParameter('q');
+    var queryStrings = window.location.search;
+    var params = new URLSearchParams(queryStrings);
+    var searchText = params.get('q');
     if (searchText) {
         //$("#progressBar").show();
         //$scope.status = "progress";
