@@ -25,12 +25,25 @@
             max-width: 600px;
         }
 
+        #blogSearch tr:hover {
+            background-color: "#ffffff";
+        }
+
         #blogSearch .mdl-textfield {
             width: 100%;
         }
 
         #blogSearch input {
             width: 100%;
+            font-size: 16px;
+            border: none;
+            height: 40px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #blogSearch input:focus {
+            border: none;
+            border-bottom: 1px solid #ccc;
         }
 
         #blogSearch input:focus {
@@ -51,22 +64,21 @@
                     <tbody>
                         <tr>
                             <td>
-                                <div class="mdl-textfield">
-                                    <input class="mdl-textfield__input" type="text" required="true" name="q">
-                                    <!-- <label class="mdl-textfield__label" for="sample1">Text...</label> -->
-                                </div>
+                                <input type="text" required="true" name="q">
                             </td>
-                            <td><button type="submit"
+                            <td>
+                                <button type="submit"
                                     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                                    Button
-                                </button></td>
+                                    Search
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </form>
     </div>
-    
+
 
 
 </body>
