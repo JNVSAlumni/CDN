@@ -26,6 +26,12 @@ window.onload = function () {
 
 // Function Definitions =========================================
 
+function getFormattedDate() {
+    var date = new Date();
+    var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds();
+    return str;
+}
+
 function enableLoader() {
     document.getElementById(DIV_ID_LOADER).classList.remove(CLASS_DISPLAY_NONE);
 }
@@ -121,6 +127,7 @@ MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
     var queryStrings = window.location.search;
     var params = new URLSearchParams(queryStrings);
     var searchText = params.get('q');
+    var xTime = getFormattedDate();
     if (searchText) {
         //$("#progressBar").show();
         //$scope.status = "progress";
