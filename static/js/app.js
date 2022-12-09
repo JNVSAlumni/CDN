@@ -108,3 +108,26 @@ function buildHTMLForAccountLogs(data) {
     table.appendChild(tableBody);
     return table;
 }
+
+// ANGULAR JS =========================================
+
+var MainAppControllers = angular.module('MainAppControllers', []);
+var alumniDSvc = "https://jnvsitamarhi.org/JsonData/alumni.json";
+MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
+    var searchText = getQueryStringParameter('q');
+    if (searchText) {
+        //$("#progressBar").show();
+        //$scope.status = "progress";
+        $scope.searchString = decodeURI(searchText);
+        var serviceURL = alumniDSvc + "?x=" + xTime;
+        $http.get(serviceURL)
+            .success(function (data, status, headers, config) {
+                $scope.items = data;
+                //$("#progressBar").hide();
+            })
+            .error(function (data, status, headers, config) {
+                console.log("No data found..");
+                //$("#progressBar").hide();
+            });
+    }
+});
