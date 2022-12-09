@@ -136,8 +136,8 @@ MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
         $http({
             method: 'GET',
             url: serviceURL
-         }).then(function (data){
-            $scope.items = data;
+         }).then(function (response){
+            $scope.items = response.data;
          },function (error){
             console.log("No data found. Error details: " + error + "");
          });
