@@ -143,14 +143,12 @@ MainAppControllers.controller('SearchCtrl', function ($scope, $http) {
     else {
         $scope.searchString = "";
     }
-    $scope.loaded = false;
     var serviceURL = alumniDSvc + "?x=" + xTime;
     $http({
         method: 'GET',
         url: serviceURL
     }).then(function (response) {
         $scope.items = response.data;
-        $scope.loaded = true;
     }, function (error) {
         console.log("No data found. Error details: " + error + "");
     });
