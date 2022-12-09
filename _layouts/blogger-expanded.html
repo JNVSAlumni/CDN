@@ -171,7 +171,33 @@
                       <!-- posts -->
                       <div class='blog-posts hfeed'>
                         <b:if cond='data:blog.pageType == &quot;index&quot;'>
-                          <b:include data='top' name='status-message' />
+
+                          <div>
+                            <form method="get" action="/search">
+                              <div id="blogSearch" class="contentCenter">
+                                <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <div class="mdl-textfield mdl-js-textfield">
+                                          <input class="mdl-textfield__input" type="text" required="true" name="q" />
+                                          <label class="mdl-textfield__label" for="sample1">Search posts...</label>
+                                        </div>
+                                      </td>
+                                      <td><button type="submit"
+                                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                                          Search
+                                        </button></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div class="contentCenter">
+                            <b:include data='top' name='status-message' />
+                          </div>
                           <div class='posts-container'>
                             <b:loop values='data:posts' var='post'>
                               <b:include data='post' name='post' />
