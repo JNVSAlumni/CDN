@@ -234,10 +234,10 @@ h6 {
   flex-grow: 1;
 }
 
-.demo-content {
+/* .demo-content {
   max-width: 100%;
   margin: 10px;
-}
+} */
 
 .global-footer {
   padding: 0px 18px 50px 18px;
@@ -381,9 +381,9 @@ h6 {
   padding-left: 10px;
 }
 
-.mdl {
+/* .mdl {
   vertical-align: middle;
-}
+} */
 
 /*Media and Links Page*/
 .collections>div>ul>li>a {
@@ -403,9 +403,9 @@ h6 {
   padding-top: 20px !important;
 }
 
-footer {
+/* footer {
   height: 62px;
-}
+} */
 
 .social-icon {
   width: 32px;
