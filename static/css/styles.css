@@ -469,7 +469,7 @@ footer {
 
 .mdl-layout__drawer {
   margin-top: 0px;
-  height: calc(100vh + 64px);
+  height: calc(100vh - 64px);
   position: fixed;
 }
 
@@ -484,7 +484,7 @@ footer {
 
   .mdl-layout__drawer {
     margin-top: 64px;
-    height: calc(100vh - 64px);
+    
   }
 
   .mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen)>.mdl-layout__header {
