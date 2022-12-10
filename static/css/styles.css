@@ -37,7 +37,7 @@
   *  Search
 ******************************************************/
 
-.contentCenter {
+.grid-center {
   display: grid;
   place-items: center;
 }
