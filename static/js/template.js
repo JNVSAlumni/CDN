@@ -1,5 +1,5 @@
-const DIV_ID_LOADER = 'loader';
 const DIV_ID_LEFT_NAV = 'leftNav';
+const DIV_ID_CORNER_NAV = 'cornerNav';
 
 window.onload = function () {
     highlightNavigation();
