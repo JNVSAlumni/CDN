@@ -1,3 +1,5 @@
+const DIV_ID_LOADER = 'loader';
+const DIV_ID_LEFT_NAV = 'leftNav';
 
 window.onload = function () {
     // Highlight navigation
