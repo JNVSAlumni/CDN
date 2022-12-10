@@ -565,13 +565,13 @@ hr {
 /******************************************************
   *  MDL Custom Component CSS Overwrite
 ******************************************************/
-.mdl-progress__indeterminate {
+/* .mdl-progress__indeterminate {
   width: 100%;
-}
+} */
 
 /*** POST CARD ***/
 
-.posts-container {
+.post-card-container {
   display: grid;
   gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
