@@ -12,75 +12,61 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-deep_purple.min.css" />
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="/static/css/styles.css">
-    <script src="/static/js/test.js"></script>
+    <script src="/static/js/app.js"></script>
     <style>
-        #blogSearch {
-            width: 100%;
-            display: grid;
-            place-items: center;
-        }
-
-        #blogSearch table {
-            width: 100%;
-            max-width: 600px;
-        }
-
-        #blogSearch tr:hover {
-            background-color: "#ffffff";
-        }
-
-        #blogSearch .mdl-textfield {
-            width: 100%;
-        }
-
-        #blogSearch input {
-            width: 100%;
-            font-size: 16px;
-            border: none;
-            height: 40px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        #blogSearch input:focus {
-            border: none;
-            border-bottom: 1px solid #ccc;
-        }
-
-        #blogSearch input:focus {
-            outline: none;
-        }
-
-        #blogSearch td:nth-child(2) {
-            width: 30px;
+        #profiles .mdl-card{
+            width: auto;
+            max-width: 320px;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <form method="get" action="/search">
-            <div id="blogSearch">
-                <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="text" required="true" name="q">
-                            </td>
-                            <td>
-                                <button type="submit"
-                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                                    Search
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div ng-app="MainApp">
+        <div ng-controller="SearchCtrl">
+            <div class="mdl-grid demo-content  ">
+                <div class="demo-card mdl-shadow--2dp abt-card color2 ">
+                    <form id="srchbox" onsubmit="searchsubmit();">
+                        <input class="srchbx" type="search" id="alsearch" ng-model="searchString"
+                            placeholder="Enter your search terms">
+                        <input class="srchbtn" type="button">
+                    </form>
+                    <span id="advsrch" style="float: right;"><a href="#/advsearch"
+                            style="color: rgb(83, 111, 123);">Advanced Search</a></span>
+                </div>
             </div>
-        </form>
+            <div id="profiles" class="posts-container">
+                <div class="mdl-card mdl-shadow--4dp" ng-if="items.length > 0"
+                    ng-repeat="i in items | filter:searchString">
+                    <div class="mdl-card__supporting-text">
+                        <div><h6>{{i.Name}}</h6></div>
+                        <div><b>Batch: </b>{{i.Batch}}</div>
+                        <div><b>Location: </b>{{i.Location}}</div>
+                        <div><b>Profile: </b>{{i.Profile}}</div>
+                        <div><b>Designation: </b>{{i.Designation}}</div>
+                        <div><b>Organisation: </b>{{i.Organisation}}</div>
+                        <div><b>Institute: </b>{{i.Institute}}</div>
+                        <div><b>Degree: </b>{{i.Degree}}</div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="(items|filter:searchString).length == 0">
+                <h6>Oops! No matching results found :( </h6>
+            </div>
+        </div>
+
     </div>
 
+    <iframe src="https://www.bipul.in">
+
+    </iframe>
 
 
 </body>
 
 </html>
+
+<script>
+    document.getElementById("test").classList.remove("hide");
+    document.getElementById("test").classList.add("show");
+</script>
