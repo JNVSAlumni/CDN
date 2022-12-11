@@ -247,8 +247,8 @@ h6 {
 }
 
 @media screen and (min-width: 1025px) {
-  .mdl-grid .demo-content{
-    padding: 0px 4% 0px 4%;
+  .abt-card {
+    margin: 0px 6%;
   }
   .global-footer {
     padding: 0px 5% 50px 5%;
