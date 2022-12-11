@@ -246,7 +246,7 @@ h6 {
   min-height: calc(100vh - 200px);
 }
 
-@media screen {
+@media screen and (min-width: 1025px) {
   .mdl-grid .demo-content{
     padding: 0px 4% 0px 4%;
   }
