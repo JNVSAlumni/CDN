@@ -246,6 +246,15 @@ h6 {
   min-height: calc(100vh - 200px);
 }
 
+@media screen {
+  .mdl-grid .demo-content{
+    padding: 0px 4% 0px 4%;
+  }
+  .global-footer {
+    padding: 0px 5% 50px 5%;
+  }
+}
+
 .mdl-navigation {
   padding-top: 20px !important;
 }
