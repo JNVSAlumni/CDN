@@ -248,10 +248,10 @@ h6 {
 
 @media screen and (min-width: 1025px) {
   .abt-card {
-    margin: 0px 6%;
+    margin: 0px 5%;
   }
   .global-footer {
-    padding: 0px 5% 50px 5%;
+    padding: 0px 6% 50px 6%;
   }
 }
 
