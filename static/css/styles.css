@@ -282,22 +282,6 @@ h6 {
   background-color: #f5f5f5;
 }
 
-/* .mdl-layout__drawer {
-  margin-top: 0px;
-  height: calc(100vh + 64px);
-  position: fixed;
-}
-
-.mdl-layout__content {
-  background-color: #f5f5f5;
-  min-height: calc(100vh - 64px);
-} */
-
-/* .mdl-layout__obfuscator {
-  position: fixed;
-} */
-
-
 @media screen and (min-width: 1025px) {
   .abt-card {
     margin: 10px 5%;
