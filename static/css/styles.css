@@ -68,6 +68,7 @@
 
 #blogSearch td:nth-child(2) {
   width: 30px;
+  padding-left: 0px;
 }
 
 /******************************************************
