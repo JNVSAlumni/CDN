@@ -358,6 +358,10 @@ hr {
     padding: 0px 6% 20px 6%;
   }
 
+  .mdl-layout {
+    height: 100vh;
+  }
+
   .mdl-layout__drawer-button {
     display: none;
   }
