@@ -307,10 +307,10 @@ h6 {
     display: none;
   }
 
-  /* .mdl-layout__drawer {
+  .mdl-layout__drawer {
     margin-top: 64px;
     height: calc(100vh - 64px);
-  } */
+  }
 
   .mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen)>.mdl-layout__header {
     width: 100%;
