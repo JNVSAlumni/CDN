@@ -230,7 +230,7 @@ h6 {
 }
 
 .global-footer {
-  padding: 0px 18px 50px 18px;
+  padding: 0px 18px 18px 18px;
 }
 
 .demo-card {
@@ -244,15 +244,6 @@ h6 {
   padding: 10px 20px 20px 20px;
   border-radius: 4px;
   min-height: calc(100vh - 200px);
-}
-
-@media screen and (min-width: 1025px) {
-  .abt-card {
-    margin: 10px 5%;
-  }
-  .global-footer {
-    padding: 0px 6% 50px 6%;
-  }
 }
 
 .mdl-navigation {
@@ -302,7 +293,15 @@ h6 {
   position: fixed;
 } */
 
+
 @media screen and (min-width: 1025px) {
+  .abt-card {
+    margin: 10px 5%;
+  }
+  .global-footer {
+    padding: 0px 6% 50px 6%;
+  }
+
   .mdl-layout__drawer-button {
     display: none;
   }
