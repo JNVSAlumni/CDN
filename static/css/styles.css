@@ -257,13 +257,17 @@ h6 {
   padding-top: 7px !important;
 }
 
+.social-icon-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(32px, 32px));
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 .social-icon {
   width: 32px;
   height: 32px;
-  float: left;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
 }
 
 .social-icon>svg {
@@ -337,11 +341,6 @@ hr {
   margin-bottom: 10px;
   text-align: center;
   margin-top: 7%;
-}
-
-.nav-footer>div {
-  align-self: center;
-  padding-left: 15%;
 }
 
 .mdl-menu li a {
