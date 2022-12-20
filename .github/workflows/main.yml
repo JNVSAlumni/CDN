@@ -12,6 +12,8 @@ jobs:
 
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
+        with: 
+          directory: 'static'
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
