@@ -45,9 +45,8 @@
     <![CDATA[
       .logo-container span{
         padding-top: 4px;
-        padding-left: 50px;
-      }
-      
+        padding-left: 10px;
+      }      
     ]]>
   </b:skin>
 </head>
@@ -56,23 +55,18 @@
   <div class='demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header'>
     <header class='demo-header mdl-layout__header'>
       <div class='mdl-layout__header-row'>
-        <div class="logo-container">
-            <span class='mdl-layout-title' style="padding-top: 4px">JNVS Alumni</span>
+        <a class='mdl-navigation__link' href='/'>
+          <div class="logo-container">
+            <span class='mdl-layout-title'>JNVS Alumni</span>
           </div>
+        </a>
         <div class='mdl-layout-spacer' />
-        <div>
+        <div class="login-button">
           <a href='/p/alumnisearch.html' style='color: inherit;'>
             <button class='mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon' id='hdrsearch'>
               <em class='material-icons'>search</em>
             </button>
           </a>
-        </div>
-        <button class='mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon' id='hdrbtn'>
-          <em class='material-icons'>more_vert</em>
-        </button>
-        <div class='mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right' for='hdrbtn' id='cornerNav'>
-          <a class='mdl-menu__item' href='/p/regulations.html'><span>Regulations</span></a>
-          <a class='mdl-menu__item' href='/p/privacy.html'><span>Privacy</span></a>
         </div>
       </div>
     </header>
@@ -470,7 +464,7 @@
         </div>
       </div>
       <div class="global-footer">
-        <span>&#169; JNVSAlumni | Made in India 🇮🇳 by <a href="https://www.bipul.in" target="_blank">Bipul</a>.</span>
+        <span>&#169; JNVSAlumni | <a href="/p/privacy.html">Privacy</a> | <a href="/p/regulations.html">Regulations</a> | Made in India 🇮🇳 by <a href="https://www.bipul.in" target="_blank">Bipul</a>.</span>
       </div>
     </main>
   </div>
